@@ -9,7 +9,7 @@ export class AwsStack extends cdk.Stack {
     new llambda.Function(this, 'AgentKickoff', {
       runtime: llambda.Runtime.NODEJS_20_X,
       code: llambda.Code.fromAsset('lambda'),
-      handler: 'hello.handler'
+      handler: 'index.handler'
     });
   }
 }
