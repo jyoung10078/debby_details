@@ -1,16 +1,15 @@
 import * as cdk from 'aws-cdk-lib/core';
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import * as llambda from 'aws-cdk-lib/aws-lambda';
 
 export class AwsStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'AwsQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    new llambda.Function(this, 'AgentKickoff', {
+      runtime: llambda.Runtime.NODEJS_20_X,
+      code: llambda.Code.fromAsset('lambda'),
+      handler: 'hello.handler'
+    });
   }
 }
