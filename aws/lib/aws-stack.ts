@@ -18,7 +18,7 @@ export class AwsStack extends cdk.Stack {
     // Create Lambda function with proper Python runtime
     const agentFunction = new lambda.Function(this, 'AgentKickoff', {
       runtime: lambda.Runtime.PYTHON_3_11,
-      code: lambda.Code.fromAsset(path.join(__dirname, '../handlers/agentStarter')),
+      code: lambda.Code.fromAsset(path.join(__dirname, '../lambda/handlers/agentStarter')),
       handler: 'index.lambda_handler',
       layers: [langchainLayer],
       environment: {
