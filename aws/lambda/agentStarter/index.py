@@ -19,6 +19,7 @@ def lambda_handler(event, context):
             max_tokens=500
         )
 
+
         return {
             "statusCode": 200,
             "body": json.dumps({
