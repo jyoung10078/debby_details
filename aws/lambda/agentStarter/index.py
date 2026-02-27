@@ -1,8 +1,8 @@
 import json
 import os
-from openai import OpenAI
+import openai
 
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 def lambda_handler(event, context):
     try:
