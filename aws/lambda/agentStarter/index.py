@@ -10,15 +10,14 @@ def lambda_handler(event, context):
         body = json.loads(event.get("body", "{}"))
         prompt = body.get("prompt", "Say something interesting.")
 
-        # Use correct OpenAI API call
+        # Use correct model name: gpt-4o-mini (not gpt-4-mini)
         response = client.chat.completions.create(
-            model="gpt-4-mini",
+            model="gpt-4o-mini",  # Fixed: was "gpt-4-mini"
             messages=[
                 {"role": "user", "content": prompt}
             ],
             max_tokens=500
         )
-
 
         return {
             "statusCode": 200,
