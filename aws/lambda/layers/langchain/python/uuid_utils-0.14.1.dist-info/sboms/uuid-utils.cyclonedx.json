@@ -2,9 +2,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "version": 1,
-  "serialNumber": "urn:uuid:1817f6b0-0ec1-43d2-b95a-40288ff785cd",
+  "serialNumber": "urn:uuid:657c21da-3a42-473d-a21f-ae9d0006ca78",
   "metadata": {
-    "timestamp": "2026-02-20T22:47:56.803050000Z",
+    "timestamp": "2026-02-20T22:48:16.361867967Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -14,7 +14,7 @@
     ],
     "component": {
       "type": "library",
-      "bom-ref": "path+file:///Users/runner/work/uuid-utils/uuid-utils#0.14.1",
+      "bom-ref": "path+file:///home/runner/work/uuid-utils/uuid-utils#0.14.1",
       "name": "uuid-utils",
       "version": "0.14.1",
       "scope": "required",
@@ -22,7 +22,7 @@
       "components": [
         {
           "type": "library",
-          "bom-ref": "path+file:///Users/runner/work/uuid-utils/uuid-utils#0.14.1 bin-target-0",
+          "bom-ref": "path+file:///home/runner/work/uuid-utils/uuid-utils#0.14.1 bin-target-0",
           "name": "uuid_utils",
           "version": "0.14.1",
           "purl": "pkg:cargo/uuid-utils@0.14.1?download_url=file://.#src/lib.rs"
@@ -1306,7 +1306,7 @@
   ],
   "dependencies": [
     {
-      "ref": "path+file:///Users/runner/work/uuid-utils/uuid-utils#0.14.1",
+      "ref": "path+file:///home/runner/work/uuid-utils/uuid-utils#0.14.1",
       "dependsOn": [
         "registry+https://github.com/rust-lang/crates.io-index#ahash@0.8.12",
         "registry+https://github.com/rust-lang/crates.io-index#mac_address@1.1.8",
