@@ -20,7 +20,7 @@ def lambda_handler(event, context):
         if raw is None:
             raw = "{}"
         body = json.loads(raw)
-        prompt = body.get("prompt", "Say something interesting.")
+        prompt = body.get("prompt", body)
 
         # Use correct model name: gpt-4o-mini (not gpt-4-mini)
         response = client.chat.completions.create(
