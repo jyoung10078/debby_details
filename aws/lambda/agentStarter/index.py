@@ -2,12 +2,24 @@ import json
 import os
 import openai
 
-client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+# make sure we actually have a key; deploying without one results in a
+# confusing 401 from the OpenAI API, so fail fast and give a clear log
+api_key = os.environ.get("OPENAI_API_KEY")
+if not api_key:
+    # Lambda initialisation happens once, so raising here will cause the
+    # function to fail early and the error will appear in CloudWatch.
+    raise RuntimeError("OPENAI_API_KEY environment variable is not set")
+
+client = openai.OpenAI(api_key=api_key)
 
 def lambda_handler(event, context):
     try:
-        # Parse the request body
-        body = json.loads(event.get("body", "{}"))
+        # Parse the request body; API Gateway may supply None for body when
+        # no payload is sent, so guard against that case.
+        raw = event.get("body")
+        if raw is None:
+            raw = "{}"
+        body = json.loads(raw)
         prompt = body.get("prompt", "Say something interesting.")
 
         # Use correct model name: gpt-4o-mini (not gpt-4-mini)
